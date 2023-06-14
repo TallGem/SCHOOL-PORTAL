@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+</head>
+<body class="bg-body-tertiary">
+    <div class="container col-lg-7 col-md-7 col-11 shadow-sm mt-lg-5 mt-3" >
+        <div class="row">
+            <h2 class="text-center text-success text-decoration-underline">School Portal</h2>
+            <div class="form-floating my-2">
+                <input type="text" class="form-control" id="studentName" placeholder="Enter your nmae">
+                <label for="studentName" class="ms-3">Enter your name</label>
+            </div>
+            <div class="my-2">
+                <button class="btn btn-dark w-100 py-2" onclick="addStudent()">Submit</button>
+                <div class="alert alert-danger my-2 py-2 text-center " id="showEmptyErrorMessage" style="display: none;">Please fill in the space </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid my-4 shadow-sm col-lg-7 col-md-7 col-11">
+        <h1 class="text-center alert alert-danger" id="noStudentRegistered">No student has registered</h1>
+        <table id="studentTable" class="table table-success table-stipped table-bordered"></table>
+    </div>
+
+    <div class="container-fluid" id="allButtons" style="display: none;">
+        <div class="row">
+            <button class="btn btn-info col-lg-1 col-md-2 col-5 my-2 mx-auto" onclick="addItemsToTheStart()">Add items to the start</button>
+            <button class="btn btn-dark col-lg-1 col-md-2 col-5 my-2 mx-auto" onclick="deleteFirstItems()">Delete first item</button>
+            <button class="btn btn-success col-lg-1 col-md-2 col-5 my-2 mx-auto" onclick=" deleteLastItem()">Delete last time</button>
+            <button class="btn btn-primary col-lg-1 col-md-2 col-5 my-2 mx-auto">Delete any item(s)</button>
+            <button class="btn btn-secondary col-lg-1 col-md-2 col-5 my-2 mx-auto" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Edit any items</button>
+            <button class="btn btn-danger col-lg-1 col-md-2 col-5 my-2 mx-auto">Delete all</button>
+        </div>
+    </div>
+
+ 
+  
+  <!-- Modal -->
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">Edit Item</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <input type="number" class="form-control my-1" placeholder="Enter the starting value" id="editedIndex">
+          <input type="text" class="form-control my-1" placeholder="New details" id="editedDetails">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" onclick="editItems()" data-bs-dismiss="modal">Understood</button>
+        </div>
+      </div>
+    </div>
+  </div>
+    
+
+    <script src="script.js"></script>
+</body>
+</html>
