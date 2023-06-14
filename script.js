@@ -72,8 +72,32 @@ function deleteLastItem(){
 }
 
 function deleteAnyItem(){
-    
+var startingIndex = Number(prompt("Enter the index number of the item you want to start deleting from"))
+var numberOfItemsToDelete = Number(prompt("Number of items to delete"))
+var confirmation = confirm("Are you sure you want to perform this operation")
+if (confirmation){
+    studentArr.splice(startingIndex-1, numberOfItemsToDelete)
+    displayItems()
 }
+else{
+    displayItems()
+}
+
+}
+
+ function deleteAll(){
+    var confirmation = confirm ("Are you sure you want to delete all")
+    if(confirmation){
+        studentArr.splice(0,studentArr.length)
+        displayItems()
+
+    }
+    else{
+        displayItems()
+    }
+ }
+
+
 
 
 
