@@ -26,6 +26,8 @@ function displayItems(){
     <tr>
     <th>S/N</th>
     <th>Student Name</th>
+    <th>Actions</th>
+
     </tr>
     `
     for (i=0; i<studentArr.length; i++){
@@ -33,6 +35,10 @@ function displayItems(){
         <tr>
         <td>${i+1}</td>
         <td>${studentArr[i]}</td>
+        <td>
+        <button class=" btn btn-warning" onclick="editOne()">Edit</button>
+        <button class = "btn btn-danger" onclick= "deleteOne(${i})">Delete</button>
+        </td>
         </tr>
         `
     }
@@ -47,7 +53,8 @@ function editItems(){
             studentArr.splice(newIndex-1, 1, newStudent)
         }
         else{
-            alert(`index is only ${studentArr.length} long`)
+            document.getElementById("invalidNum").style.display = "block"
+            
         }
     } else{
         alert("please fill in the details")
@@ -56,8 +63,8 @@ function editItems(){
 }
 
 function addItemsToTheStart(){
-    var studentName = prompt("Enter the item to start")
-    studentArr.unshift(studentName)
+    var addToFront = prompt("Enter the item to start")
+    studentArr.unshift(addToFront)
     displayItems();
 }
 
@@ -95,6 +102,11 @@ else{
     else{
         displayItems()
     }
+ }
+
+ function deleteOne(index){
+    studentArr.splice(index,1)
+    displayItems()
  }
 
 

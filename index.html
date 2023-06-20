@@ -49,12 +49,13 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <input type="number" class="form-control my-1" placeholder="Enter the starting value" id="editedIndex">
-          <input type="text" class="form-control my-1" placeholder="New details" id="editedDetails">
+          <div class="alert alert-danger text-center " id="invalidNum" style="display: none;">Number entered is invalid</div>
+          <input type="number" class="form-control my-1" placeholder="Enter the number to delete" id="editedIndex">
+          <input type="text" class="form-control my-1" placeholder="New details to replace it" id="editedDetails">
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary" onclick="editItems()" data-bs-dismiss="modal">Understood</button>
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-success" onclick="editItems()" data-bs-dismiss="modal">Update</button>
         </div>
       </div>
     </div>
